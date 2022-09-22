@@ -3,7 +3,8 @@ pipeline {
 	stages {
 		stage("build") {
 			steps {
-				echo 'building the application'
+				bat """ @echo off
+				echo %cd% """
 				}
 		}
 		stage("test") {
