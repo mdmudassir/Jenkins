@@ -1,7 +1,7 @@
 
 pipeline {
   agent any
-	parameter {
+	parameters {
 	choice(name: 'Gitbranch', choices:['main', 'feature'], description: 'Select branch')  
 	}
     stages {
