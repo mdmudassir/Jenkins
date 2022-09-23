@@ -24,6 +24,8 @@ pipeline {
 	stage("build") {
 		steps {
 			echo "${StartTime} building the application"
+			bat """ @echo off
+				echo %cd% """
 		}
 	}
 	stage("test") {
