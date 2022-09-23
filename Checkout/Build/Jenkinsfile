@@ -1,9 +1,7 @@
 
 pipeline {
   agent any
-	parameters {
-	choice(name: 'Gitbranch', choices:['main', 'feature'], description: 'Select branch')  
-	}
+	
     stages {
         stage('Prepare and Checkout') {
             steps {
@@ -14,11 +12,7 @@ pipeline {
                     echo "%TIME%"
                     ''').trim()
                 }
-                checkout changelog: false, poll: false,
-                scm: [$class: 'GitSCM',
-                branches: [[name: "*/$GitBranch"]],
-                extensions: [],
-                userRemoteConfigs: [[credentialsId: 'Github', url: 'https://github.com/mdmudassir/Jenkins.git']]]
+            
             }
         }
 	stage("build") {
